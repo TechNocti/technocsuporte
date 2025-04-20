@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNoc - Suporte Técnico</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #1e1e1e;
+      line-height: 1.6;
+    }
+
+    header {
+        background-image: url('img/noc-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* faz o header ocupar toda a altura da tela */
+  color: white;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem; /* só padding lateral, o resto é centralizado com flexbox */
+}
+
+    header h1 {
+    font-size: 7rem; /* aumenta o tamanho */
+    background: linear-gradient(to top, #333232 5%, #fff); /* gradiente de baixo para cima */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+    }
+
+    .buttons a {
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background-color: rgb(94, 91, 91);
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: #eee;
+      color: #333;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .services, .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .service, .plan {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      flex: 1 1 200px;
+      max-width: 300px;
+    }
+
+    .service i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 4rem 2rem;
+    display: block;
+  }
+      .section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>TechNoc.</h1>
+    <p>Suporte técnico com estrutura profissional e atendimento humanizado.</p>
+    <div class="buttons">
+      <a href="https://api.whatsapp.com/send?phone=5584996140624&text=Ol%C3%A1,%20tudo%20bem?%0APara%20atendimento%20remoto,%20certifique-se%20de%20ter%20ferramenta%20instaladas%20no%20seu%20notebook%20para%20iniciar%20o%20atendimento.%20%0A%0ACaso%20n%C3%A3o%20tenha,%20acesso%20o%20link%20na%20sequ%C3%AAncia,%20fa%C3%A7a%20download%20e%20instala%C3%A7%C3%A3o.%20%0A%0Ahttps://anydesk.com/pt/downloads/windows" class="btn-primary" target="_blank" rel="external">Solicitar suporte</a>
+      <a href="#planos" class="btn-secondary">Conheça os planos</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Serviços</h2>
+    <div class="services">
+      <div class="service">
+        <i class="fas fa-desktop"></i>
+        <h3>Suporte Remoto</h3>
+      </div>
+      <div class="service">
+        <i class="fas fa-tools"></i>
+        <h3>Manutenção em Hardware</h3>
+      </div>
+      <div class="service">
+        <i class="fas fa-network-wired"></i>
+        <h3>Redes e Infraestrutura</h3>
+      </div>
+      <div class="service">
+        <i class="fas fa-comments"></i>
+        <h3>Consultoria</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color: #eef1f5">
+    <h2 id="planos">Planos</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Plano Pessoal</h3>
+        <p><strong>R$150</strong></p>
+        <p>Suporte remoto sob demanda</p>
+      </div>
+      <div class="plan">
+        <h3>Empresas</h3>
+        <p><strong>R$500</strong></p>
+        <p>Atendimento técnico e manutenção recorrente</p>
+      </div>
+      <div class="plan">
+        <h3>Mensalistas</h3>
+        <p><strong>R$1200</strong></p>
+        <p>Monitoramento e suporte contínuo</p>
+      </div>
+      <div class="plan">
+        <h3>Serviços Avulsos</h3>
+        <p><strong>Consulte</strong></p>
+        <p>Manutenções ou projetos pontuais</p>
+      </div>
+    </div>
+  </section>
+  <div class="buttons">
+  <section class="section">
+    <h2>Propostas / Contratos</h2>
+    <a href="docs/planos_technoc.pdf" class="btn-primary" target="_blank">Baixar proposta PDF</a>
+  </section>
+</div>
+  <footer class="footer">
+    <p>© TechNoc 2025 — Todos os direitos reservados</p>
+    <p>Email: technoc.suporteti@gmail.com | WhatsApp: (84) 99106-6600</p>
+  </footer>
+</body>
+
+</html>
