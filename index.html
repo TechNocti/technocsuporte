@@ -2,194 +2,334 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechNoc - Suporte Técnico</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNoc - Suporte Técnico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-    body {
-      background-color: #f5f7fa;
-      color: #1e1e1e;
-      line-height: 1.6;
-    }
+        body {
+            background-color: #f5f7fa;
+            color: #1e1e1e;
+            line-height: 1.6;
+        }
 
-    header {
-        background-image: url('img/noc-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* faz o header ocupar toda a altura da tela */
-  color: white;
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 2rem; /* só padding lateral, o resto é centralizado com flexbox */
-}
+        header {
+            background-image: url('img/noc-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Faz o header ocupar toda a altura da tela inicialmente */
+            color: white;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 2rem; /* Padding lateral */
+        }
 
-    header h1 {
-    font-size: 7rem; /* aumenta o tamanho */
-    background: linear-gradient(to top, #333232 5%, #fff); /* gradiente de baixo para cima */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-    }
+        header h1 {
+            font-size: 7rem;
+            background: linear-gradient(to top, #333232 5%, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
 
-    header p {
-      font-size: 2rem;
-      color: #fff;
-    }
+        header p {
+            font-size: 2rem;
+            color: #fff;
+            max-width: 80%; /* Evita que o texto fique muito largo em telas grandes */
+        }
 
-    .buttons {
-      margin-top: 2rem;
-    }
+        .buttons {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%; /* Garante que os botões ocupem a largura total do container */
+        }
 
-    .buttons a {
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+        .buttons a {
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            white-space: nowrap;
+            max-width: 90vw; /* Evita que os botões quebrem muito em telas pequenas */
+            text-align: center;
+            flex-grow: 0; /* Permite que os botões se expandam para preencher o espaço disponível */
+            width: auto; /* Largura mínima para evitar que fiquem muito pequenos */
+        }
 
-    .btn-primary {
-      background-color: rgb(94, 91, 91);
-      color: white;
-    }
+        .btn-primary {
+            background-color: rgb(94, 91, 91);
+            color: white;
+        }
 
-    .btn-secondary {
-      background-color: #eee;
-      color: #333;
-    }
+        .btn-secondary {
+            background-color: #eee;
+            color: #333;
+        }
 
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
+        .section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
 
-    .section h2 {
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
+        .section h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
 
-    .services, .plans {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
+        .services,
+        .plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
 
-    .service, .plan {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      flex: 1 1 200px;
-      max-width: 300px;
-    }
+        .service,
+        .plan {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            flex: 1 1 200px;
+            max-width: 300px;
+        }
 
-    .service i {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        .service i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
 
-    .footer {
-      padding: 3rem 2rem;
-      text-align: center;
-      background-color: #1e1e1e;
-      color: white;
-    }
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background-color: #1e1e1e;
+            color: white;
+        }
 
-    @media (max-width: 768px) {
-  header {
-    height: auto;
-    padding: 4rem 2rem;
-    display: block;
-  }
-      .section {
-        padding: 2rem 1rem;
-      }
-    }
-  </style>
+        /* Media Queries para telas menores */
+        @media (max-width: 768px) {
+            header {
+                height: auto; /* Ajusta a altura do header ao conteúdo */
+                padding: 6rem 2rem; /* Aumenta o padding vertical */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            header h1 {
+                font-size: 4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            header p {
+                font-size: 1.5rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: stretch; /* Estica os botões para a largura total */
+                gap: 0.8rem;
+            }
+
+            .buttons a {
+                width: 100%;
+                margin: 0;
+                max-width: none;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .services,
+            .plans {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .service,
+            .plan {
+                width: 90%;
+                max-width: none;
+                text-align: center;
+            }
+
+            .service i {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+        }
+
+        /* Media Query para telas ainda menores (celulares pequenos) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .service h3,
+            .plan h3 {
+                font-size: 1.1rem;
+            }
+
+            .service p,
+            .plan p {
+                font-size: 0.9rem;
+            }
+
+            .service i {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Media Query para telas maiores (desktops grandes) - ajustes finos se necessário */
+        @media (min-width: 1200px) {
+            header h1 {
+                font-size: 8rem; /* Aumenta um pouco em telas grandes */
+            }
+
+            header p {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 5rem 3rem;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+            }
+
+            .services,
+            .plans {
+                gap: 3rem;
+            }
+
+            .service,
+            .plan {
+                flex-basis: 250px; /* Ajusta a largura base em telas maiores */
+                max-width: 350px;
+            }
+
+            .service i {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>TechNoc.</h1>
-    <p>Suporte técnico com estrutura profissional e atendimento humanizado.</p>
+    <header>
+        <h1>TechNoc.</h1>
+        <p>Suporte técnico com estrutura profissional e atendimento humanizado.</p>
+        <div class="buttons">
+            <a href="https://api.whatsapp.com/send?phone=5584996140624&text=Ol%C3%A1,%20tudo%20bem?%0APara%20atendimento%20remoto,%20certifique-se%20de%20ter%20ferramenta%20instaladas%20no%20seu%20notebook%20para%20iniciar%20o%20atendimento.%20%0A%0ACaso%20n%C3%A3o%20tenha,%20acesso%20o%20link%20na%20sequ%C3%AAncia,%20fa%C3%A7a%20download%20e%20instala%C3%A7%C3%A3o.%20%0A%0Ahttps://anydesk.com/pt/downloads/windows"
+                class="btn-primary" target="_blank" rel="external">Solicitar suporte</a>
+            <a href="#planos" class="btn-secondary">Conheça os planos</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>Serviços</h2>
+        <div class="services">
+            <div class="service">
+                <i class="fas fa-desktop"></i>
+                <h3>Suporte Remoto</h3>
+            </div>
+            <div class="service">
+                <i class="fas fa-tools"></i>
+                <h3>Manutenção em Hardware</h3>
+            </div>
+            <div class="service">
+                <i class="fas fa-network-wired"></i>
+                <h3>Redes e Infraestrutura</h3>
+            </div>
+            <div class="service">
+                <i class="fas fa-comments"></i>
+                <h3>Consultoria</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #eef1f5">
+        <h2 id="planos">Planos</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3>Plano Pessoal</h3>
+                <p><strong>R$150</strong></p>
+                <p>Suporte remoto sob demanda</p>
+            </div>
+            <div class="plan">
+                <h3>Empresas</h3>
+                <p><strong>R$500</strong></p>
+                <p>Atendimento técnico e manutenção recorrente</p>
+            </div>
+            <div class="plan">
+                <h3>Mensalistas</h3>
+                <p><strong>R$1200</strong></p>
+                <p>Monitoramento e suporte contínuo</p>
+            </div>
+            <div class="plan">
+                <h3>Serviços Avulsos</h3>
+                <p><strong>Consulte</strong></p>
+                <p>Manutenções ou projetos pontuais</p>
+            </div>
+        </div>
+    </section>
     <div class="buttons">
-      <a href="https://api.whatsapp.com/send?phone=5584996140624&text=Ol%C3%A1,%20tudo%20bem?%0APara%20atendimento%20remoto,%20certifique-se%20de%20ter%20ferramenta%20instaladas%20no%20seu%20notebook%20para%20iniciar%20o%20atendimento.%20%0A%0ACaso%20n%C3%A3o%20tenha,%20acesso%20o%20link%20na%20sequ%C3%AAncia,%20fa%C3%A7a%20download%20e%20instala%C3%A7%C3%A3o.%20%0A%0Ahttps://anydesk.com/pt/downloads/windows" class="btn-primary" target="_blank" rel="external">Solicitar suporte</a>
-      <a href="#planos" class="btn-secondary">Conheça os planos</a>
+        <section class="section">
+            <h2>Propostas / Contratos</h2>
+            <a href="docs/planos_technoc.pdf" class="btn-primary" target="_blank">Baixar proposta PDF</a>
+        </section>
     </div>
-  </header>
-
-  <section class="section">
-    <h2>Serviços</h2>
-    <div class="services">
-      <div class="service">
-        <i class="fas fa-desktop"></i>
-        <h3>Suporte Remoto</h3>
-      </div>
-      <div class="service">
-        <i class="fas fa-tools"></i>
-        <h3>Manutenção em Hardware</h3>
-      </div>
-      <div class="service">
-        <i class="fas fa-network-wired"></i>
-        <h3>Redes e Infraestrutura</h3>
-      </div>
-      <div class="service">
-        <i class="fas fa-comments"></i>
-        <h3>Consultoria</h3>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background-color: #eef1f5">
-    <h2 id="planos">Planos</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>Plano Pessoal</h3>
-        <p><strong>R$150</strong></p>
-        <p>Suporte remoto sob demanda</p>
-      </div>
-      <div class="plan">
-        <h3>Empresas</h3>
-        <p><strong>R$500</strong></p>
-        <p>Atendimento técnico e manutenção recorrente</p>
-      </div>
-      <div class="plan">
-        <h3>Mensalistas</h3>
-        <p><strong>R$1200</strong></p>
-        <p>Monitoramento e suporte contínuo</p>
-      </div>
-      <div class="plan">
-        <h3>Serviços Avulsos</h3>
-        <p><strong>Consulte</strong></p>
-        <p>Manutenções ou projetos pontuais</p>
-      </div>
-    </div>
-  </section>
-  <div class="buttons">
-  <section class="section">
-    <h2>Propostas / Contratos</h2>
-    <a href="docs/planos_technoc.pdf" class="btn-primary" target="_blank">Baixar proposta PDF</a>
-  </section>
-</div>
-  <footer class="footer">
-    <p>© TechNoc 2025 — Todos os direitos reservados</p>
-    <p>Email: technoc.suporteti@gmail.com | WhatsApp: (84) 99106-6600</p>
-  </footer>
+    <footer class="footer">
+        <p>© TechNoc 2025 — Todos os direitos reservados</p>
+        <p>Email: technoc.suporteti@gmail.com | WhatsApp: (84) 99106-6600</p>
+    </footer>
 </body>
 
 </html>
